@@ -33,4 +33,13 @@ body {
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+  
+  /* Bookmark button styles */
+  .bookmark-btn {
+    @apply transition-all duration-200 hover:scale-110;
+  }
+  
+  .bookmark-btn:hover {
+    transform: scale(1.1);
+  }
 }

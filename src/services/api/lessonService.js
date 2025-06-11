@@ -1,4 +1,5 @@
 import lessonsData from '../mockData/lessons.json';
+import bookmarkService from './bookmarkService';
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { courseService, progressService } from '@/services';
 import DashboardStatsGrid from '@/components/organisms/DashboardStatsGrid';
 import EnrolledCoursesList from '@/components/organisms/EnrolledCoursesList';
+import BookmarkedLessonsSection from '@/components/organisms/BookmarkedLessonsSection';
 import RecentActivityList from '@/components/organisms/RecentActivityList';
 import LoadingSpinner from '@/components/atoms/LoadingSpinner';
 import AlertMessage from '@/components/molecules/AlertMessage';
@@ -87,9 +88,10 @@ const DashboardPage = () => {
           </p>
         </div>
         
-        <div className="space-y-8">
+<div className="space-y-8">
             <DashboardStatsGrid enrolledCoursesCount={enrolledCourses.length} />
             <EnrolledCoursesList enrolledCourses={enrolledCourses} />
+            <BookmarkedLessonsSection />
             <RecentActivityList recentActivity={recentActivity} />
         </div>
       </div>

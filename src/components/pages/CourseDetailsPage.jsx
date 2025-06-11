@@ -3,36 +3,39 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
 import { courseService, lessonService, progressService } from '@/services';
+import bookmarkService from '@/services/api/bookmarkService';
 import Breadcrumb from '@/components/molecules/Breadcrumb';
 import LoadingSpinner from '@/components/atoms/LoadingSpinner';
 import AlertMessage from '@/components/molecules/AlertMessage';
 import CourseDetailsHeader from '@/components/organisms/CourseDetailsHeader';
 import CourseCurriculum from '@/components/organisms/CourseCurriculum';
-
 const CourseDetailsPage = () => {
   const { courseId } = useParams();
   const navigate = useNavigate();
-  const [course, setCourse] = useState(null);
+const [course, setCourse] = useState(null);
   const [lessons, setLessons] = useState([]);
   const [progress, setProgress] = useState(null);
   const [loading, setLoading] = useState(false);
   const [enrolling, setEnrolling] = useState(false);
   const [error, setError] = useState(null);
+  const [bookmarks, setBookmarks] = useState([]);
 
-  useEffect(() => {
+useEffect(() => {
     const loadCourseData = async () => {
       setLoading(true);
       setError(null);
       try {
-        const [courseData, lessonsData, progressData] = await Promise.all([
+        const [courseData, lessonsData, progressData, bookmarksData] = await Promise.all([
           courseService.getById(courseId),
           lessonService.getByCourseId(courseId),
-          progressService.getByCourseId(courseId)
+          progressService.getByCourseId(courseId),
+          bookmarkService.getBookmarks()
         ]);
         
         setCourse(courseData);
         setLessons(lessonsData);
         setProgress(progressData);
+        setBookmarks(bookmarksData);
       } catch (err) {
         setError(err.message || 'Failed to load course details');
         toast.error('Failed to load course details');
@@ -133,11 +136,12 @@ const CourseDetailsPage = () => {
             lessons={lessons} // Pass lessons to handleStartLearning checks
         />
 
-        <CourseCurriculum
+<CourseCurriculum
             lessons={lessons}
             courseId={courseId}
             isEnrolled={isEnrolled}
             completedLessons={completedLessons}
+            bookmarks={bookmarks}
         />
       </div>
     </div>
