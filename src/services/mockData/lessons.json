@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "courseId": "1",
+    "title": "Introduction to JavaScript",
+    "videoUrl": "/videos/js-intro.mp4",
+    "duration": 25,
+    "notes": "JavaScript is a versatile programming language that powers the web. In this lesson, we'll explore the basic syntax, data types, and how to write your first JavaScript program. We'll cover variables, console.log(), and basic operations.",
+    "order": 1
+  },
+  {
+    "id": "2",
+    "courseId": "1",
+    "title": "Variables and Data Types",
+    "videoUrl": "/videos/js-variables.mp4",
+    "duration": 30,
+    "notes": "Learn about JavaScript's dynamic typing system, primitive data types (string, number, boolean, null, undefined), and how to declare variables using var, let, and const. Understanding scope and hoisting concepts.",
+    "order": 2
+  },
+  {
+    "id": "3",
+    "courseId": "1",
+    "title": "Functions and Scope",
+    "videoUrl": "/videos/js-functions.mp4",
+    "duration": 35,
+    "notes": "Master JavaScript functions including function declarations, expressions, arrow functions, and the concept of scope. Learn about parameters, return values, and function hoisting.",
+    "order": 3
+  },
+  {
+    "id": "4",
+    "courseId": "2",
+    "title": "Spanish Alphabet and Pronunciation",
+    "videoUrl": "/videos/spanish-alphabet.mp4",
+    "duration": 20,
+    "notes": "Learn the Spanish alphabet, pronunciation rules, and basic phonetics. Practice with common sounds that are different from English, including rolled R's and proper vowel pronunciation.",
+    "order": 1
+  },
+  {
+    "id": "5",
+    "courseId": "2",
+    "title": "Basic Greetings and Introductions",
+    "videoUrl": "/videos/spanish-greetings.mp4",
+    "duration": 25,
+    "notes": "Master essential Spanish greetings, formal and informal introductions, and basic courtesy expressions. Practice conversations for meeting new people and everyday interactions.",
+    "order": 2
+  },
+  {
+    "id": "6",
+    "courseId": "3",
+    "title": "Limits and Continuity",
+    "videoUrl": "/videos/calculus-limits.mp4",
+    "duration": 45,
+    "notes": "Explore the fundamental concept of limits in calculus. Understand how limits define continuity, and learn various techniques for evaluating limits including algebraic manipulation and L'Hôpital's rule.",
+    "order": 1
+  },
+  {
+    "id": "7",
+    "courseId": "4",
+    "title": "React Components and JSX",
+    "videoUrl": "/videos/react-components.mp4",
+    "duration": 40,
+    "notes": "Learn the foundation of React development with components and JSX syntax. Understand how to create functional and class components, JSX rules, and best practices for component structure.",
+    "order": 1
+  },
+  {
+    "id": "8",
+    "courseId": "5",
+    "title": "French Pronunciation Basics",
+    "videoUrl": "/videos/french-pronunciation.mp4",
+    "duration": 30,
+    "notes": "Master French pronunciation fundamentals including nasal vowels, liaison, and the distinctive French 'r'. Practice with common words and phrases to develop authentic French pronunciation.",
+    "order": 1
+  }
+]

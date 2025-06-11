@@ -1,0 +1,140 @@
+[
+  {
+    "id": "1",
+    "lessonId": "1",
+    "passingScore": 70,
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What is JavaScript primarily used for?",
+        "options": [
+          "Database management",
+          "Web development and scripting",
+          "Operating system development",
+          "Hardware programming"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q2",
+        "question": "Which of the following is the correct way to declare a variable in modern JavaScript?",
+        "options": [
+          "variable myVar = 5;",
+          "let myVar = 5;",
+          "declare myVar = 5;",
+          "var myVar := 5;"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q3",
+        "question": "What does console.log() do?",
+        "options": [
+          "Creates a new variable",
+          "Displays output in the browser console",
+          "Deletes a variable",
+          "Stops the program execution"
+        ],
+        "correctAnswer": 1
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "lessonId": "2",
+    "passingScore": 75,
+    "questions": [
+      {
+        "id": "q4",
+        "question": "Which of these is NOT a primitive data type in JavaScript?",
+        "options": [
+          "string",
+          "number",
+          "array",
+          "boolean"
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q5",
+        "question": "What is the difference between 'let' and 'const'?",
+        "options": [
+          "No difference",
+          "let is for numbers, const is for strings",
+          "let can be reassigned, const cannot",
+          "const is faster than let"
+        ],
+        "correctAnswer": 2
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "lessonId": "4",
+    "passingScore": 70,
+    "questions": [
+      {
+        "id": "q6",
+        "question": "How do you say 'Hello' in Spanish?",
+        "options": [
+          "Adiós",
+          "Hola",
+          "Gracias",
+          "Por favor"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q7",
+        "question": "Which greeting is more formal in Spanish?",
+        "options": [
+          "¿Qué tal?",
+          "¿Cómo está usted?",
+          "¿Cómo estás?",
+          "¡Hola!"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q8",
+        "question": "What does '¿Cómo te llamas?' mean?",
+        "options": [
+          "How are you?",
+          "What's your name?",
+          "Where are you from?",
+          "Nice to meet you"
+        ],
+        "correctAnswer": 1
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "lessonId": "7",
+    "passingScore": 80,
+    "questions": [
+      {
+        "id": "q9",
+        "question": "What does JSX stand for?",
+        "options": [
+          "JavaScript XML",
+          "Java Syntax Extension",
+          "JSON XML",
+          "JavaScript Extension"
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q10",
+        "question": "In React, components must return:",
+        "options": [
+          "A string",
+          "Multiple elements",
+          "A single parent element or fragment",
+          "An array"
+        ],
+        "correctAnswer": 2
+      }
+    ]
+  }
+]

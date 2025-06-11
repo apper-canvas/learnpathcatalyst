@@ -1,0 +1,33 @@
+[
+  {
+    "id": "1",
+    "courseId": "1",
+    "completedLessons": ["1", "2"],
+    "quizScores": {
+      "1": 85,
+      "2": 92
+    },
+    "lastAccessed": "2024-01-15T10:30:00Z",
+    "completionPercentage": 25
+  },
+  {
+    "id": "2",
+    "courseId": "2",
+    "completedLessons": ["4"],
+    "quizScores": {
+      "4": 78
+    },
+    "lastAccessed": "2024-01-14T14:45:00Z",
+    "completionPercentage": 15
+  },
+  {
+    "id": "3",
+    "courseId": "4",
+    "completedLessons": ["7"],
+    "quizScores": {
+      "7": 88
+    },
+    "lastAccessed": "2024-01-13T09:15:00Z",
+    "completionPercentage": 10
+  }
+]
