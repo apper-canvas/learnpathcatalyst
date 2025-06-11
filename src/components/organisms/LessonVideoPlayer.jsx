@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
+import ReactPlayer from 'react-player';
 import ApperIcon from '@/components/ApperIcon';
 import Button from '@/components/atoms/Button';
 import { Link } from 'react-router-dom';
 import ProgressBar from '@/components/molecules/ProgressBar';
-
 const LessonVideoPlayer = ({ lesson, courseTitle, courseId, videoProgress, isVideoCompleted, onProgressChange }) => {
     const playerRef = useRef(null);
 

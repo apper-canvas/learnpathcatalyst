@@ -46,11 +46,10 @@ component: CourseDetailsPage,
 component: LessonViewerPage,
     hideFromNav: true
   },
-  quizPage: {
+quizPage: {
     id: 'quizPage',
     label: 'Quiz',
     path: '/courses/:courseId/lessons/:lessonId/quiz',
-component: QuizPage,
     component: QuizPage,
     hideFromNav: true
   },
