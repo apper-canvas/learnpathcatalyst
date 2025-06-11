@@ -8,20 +8,20 @@
     "notes": "JavaScript is a versatile programming language that powers the web. In this lesson, we'll explore the basic syntax, data types, and how to write your first JavaScript program. We'll cover variables, console.log(), and basic operations.",
     "order": 1
   },
-  {
+{
     "id": "2",
     "courseId": "1",
     "title": "Variables and Data Types",
-    "videoUrl": "/videos/js-variables.mp4",
+    "videoUrl": "https://www.youtube.com/watch?v=9emXNzqCKyg",
     "duration": 30,
     "notes": "Learn about JavaScript's dynamic typing system, primitive data types (string, number, boolean, null, undefined), and how to declare variables using var, let, and const. Understanding scope and hoisting concepts.",
     "order": 2
   },
-  {
+{
     "id": "3",
     "courseId": "1",
     "title": "Functions and Scope",
-    "videoUrl": "/videos/js-functions.mp4",
+    "videoUrl": "https://www.youtube.com/watch?v=N8ap4k_1QEQ",
     "duration": 35,
     "notes": "Master JavaScript functions including function declarations, expressions, arrow functions, and the concept of scope. Learn about parameters, return values, and function hoisting.",
     "order": 3
