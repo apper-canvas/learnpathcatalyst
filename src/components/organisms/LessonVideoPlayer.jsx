@@ -20,13 +20,13 @@ const LessonVideoPlayer = ({ lesson, courseTitle, courseId, videoProgress, isVid
     return (
         <div className="relative bg-black">
             <div className="aspect-video bg-gradient-to-br from-surface-800 to-surface-900">
-                {lesson.videoUrl ? (
+{lesson.videoUrl ? (
                     <ReactPlayer
                         ref={playerRef}
                         url={lesson.videoUrl}
                         width="100%"
                         height="100%"
-controls={true}
+                        controls={true}
                         playing={false}
                         onProgress={handleProgress}
                         onEnded={handleEnded}
@@ -45,6 +45,7 @@ controls={true}
                                 }
                             }
                         }}
+                    />
                 ) : (
                     <div className="flex items-center justify-center h-full">
                         <div className="text-center text-white">
