@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
 import { motion } from 'framer-motion';
-import ApperIcon from '../components/ApperIcon';
+import ApperIcon from '@/components/ApperIcon';
+import LinkButton from '@/components/atoms/LinkButton';
 
-const NotFound = () => {
+const NotFoundPage = () => {
   return (
     <div className="min-h-full bg-surface-50 flex items-center justify-center">
       <div className="text-center px-4">
@@ -28,21 +29,21 @@ const NotFound = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
+            <LinkButton
               to="/dashboard"
-              className="inline-flex items-center space-x-2 px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center space-x-2 px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90"
             >
               <ApperIcon name="Home" className="w-4 h-4" />
               <span>Go to Dashboard</span>
-            </Link>
+            </LinkButton>
             
-            <Link
+            <LinkButton
               to="/courses"
-              className="inline-flex items-center space-x-2 px-6 py-3 bg-surface-100 text-surface-900 rounded-lg hover:bg-surface-200 transition-colors"
+              className="inline-flex items-center space-x-2 px-6 py-3 bg-surface-100 text-surface-900 rounded-lg hover:bg-surface-200"
             >
               <ApperIcon name="BookOpen" className="w-4 h-4" />
               <span>Browse Courses</span>
-            </Link>
+            </LinkButton>
           </div>
         </motion.div>
       </div>
@@ -50,4 +51,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default NotFoundPage;

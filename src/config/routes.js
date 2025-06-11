@@ -1,12 +1,12 @@
-import Home from '../pages/Home';
-import Dashboard from '../pages/Dashboard';
-import Courses from '../pages/Courses';
-import CourseDetails from '../pages/CourseDetails';
-import LessonViewer from '../pages/LessonViewer';
-import QuizPage from '../pages/QuizPage';
-import Progress from '../pages/Progress';
-import Settings from '../pages/Settings';
-import NotFound from '../pages/NotFound';
+import HomePage from '@/components/pages/HomePage';
+import DashboardPage from '@/components/pages/DashboardPage';
+import CoursesPage from '@/components/pages/CoursesPage';
+import CourseDetailsPage from '@/components/pages/CourseDetailsPage';
+import LessonViewerPage from '@/components/pages/LessonViewerPage';
+import QuizPage from '@/components/pages/QuizPage';
+import ProgressPage from '@/components/pages/ProgressPage';
+import SettingsPage from '@/components/pages/SettingsPage';
+import NotFoundPage from '@/components/pages/NotFoundPage';
 
 export const routes = {
   home: {
@@ -14,28 +14,28 @@ export const routes = {
     label: 'Home',
     path: '/',
     icon: 'Home',
-    component: Home
+component: HomePage
   },
   dashboard: {
     id: 'dashboard',
     label: 'Dashboard',
     path: '/dashboard',
     icon: 'LayoutDashboard',
-    component: Dashboard
+component: DashboardPage
   },
   courses: {
     id: 'courses',
     label: 'Courses',
     path: '/courses',
     icon: 'BookOpen',
-    component: Courses
+component: CoursesPage
   },
   courseDetails: {
     id: 'courseDetails',
     label: 'Course Details',
     path: '/courses/:courseId',
     icon: 'BookOpen',
-    component: CourseDetails,
+component: CourseDetailsPage,
     hideFromNav: true
   },
   lessonViewer: {
@@ -43,14 +43,14 @@ export const routes = {
     label: 'Lesson',
     path: '/courses/:courseId/lessons/:lessonId',
     icon: 'Play',
-    component: LessonViewer,
+component: LessonViewerPage,
     hideFromNav: true
   },
   quizPage: {
     id: 'quizPage',
     label: 'Quiz',
     path: '/courses/:courseId/lessons/:lessonId/quiz',
-    icon: 'FileQuestion',
+component: QuizPage,
     component: QuizPage,
     hideFromNav: true
   },
@@ -59,14 +59,14 @@ export const routes = {
     label: 'My Progress',
     path: '/progress',
     icon: 'TrendingUp',
-    component: Progress
+component: ProgressPage
   },
   settings: {
     id: 'settings',
     label: 'Settings',
     path: '/settings',
     icon: 'Settings',
-    component: Settings
+component: SettingsPage
   }
 };
 
