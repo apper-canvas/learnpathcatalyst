@@ -3,7 +3,7 @@
     "id": "1",
     "courseId": "1",
     "title": "Introduction to JavaScript",
-    "videoUrl": "/videos/js-intro.mp4",
+    "videoUrl": "https://www.youtube.com/watch?v=W6NZfCO5SIk",
     "duration": 25,
     "notes": "JavaScript is a versatile programming language that powers the web. In this lesson, we'll explore the basic syntax, data types, and how to write your first JavaScript program. We'll cover variables, console.log(), and basic operations.",
     "order": 1
