@@ -26,18 +26,25 @@ const LessonVideoPlayer = ({ lesson, courseTitle, courseId, videoProgress, isVid
                         url={lesson.videoUrl}
                         width="100%"
                         height="100%"
-                        controls={true}
+controls={true}
                         playing={false}
                         onProgress={handleProgress}
                         onEnded={handleEnded}
                         config={{
+                            youtube: {
+                                playerVars: {
+                                    showinfo: 0,
+                                    controls: 1,
+                                    modestbranding: 1,
+                                    rel: 0
+                                }
+                            },
                             file: {
                                 attributes: {
                                     controlsList: 'nodownload'
                                 }
                             }
                         }}
-                    />
                 ) : (
                     <div className="flex items-center justify-center h-full">
                         <div className="text-center text-white">

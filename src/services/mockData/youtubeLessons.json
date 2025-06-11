@@ -1,0 +1,32 @@
+[
+  {
+    "id": "yt-lesson-1",
+    "courseId": "course-1",
+    "title": "Introduction to React Hooks",
+    "order": 1,
+    "duration": 15,
+    "videoUrl": "https://www.youtube.com/watch?v=O6P86uwfdR0",
+    "notes": "Learn the fundamentals of React Hooks including useState and useEffect. This video covers practical examples and best practices for modern React development.",
+    "createdAt": "2024-01-15T10:00:00Z"
+  },
+  {
+    "id": "yt-lesson-2", 
+    "courseId": "course-1",
+    "title": "Advanced JavaScript Concepts",
+    "order": 2,
+    "duration": 22,
+    "videoUrl": "https://www.youtube.com/watch?v=Mus_vwhTCq0",
+    "notes": "Deep dive into advanced JavaScript concepts including closures, prototypes, and async/await patterns. Essential knowledge for modern web development.",
+    "createdAt": "2024-01-15T11:00:00Z"
+  },
+  {
+    "id": "yt-lesson-3",
+    "courseId": "course-2", 
+    "title": "CSS Grid Layout Masterclass",
+    "order": 1,
+    "duration": 18,
+    "videoUrl": "https://www.youtube.com/watch?v=jV8B24rSN5o",
+    "notes": "Master CSS Grid layout with practical examples. Learn how to create complex, responsive layouts with ease using CSS Grid properties.",
+    "createdAt": "2024-01-15T12:00:00Z"
+  }
+]

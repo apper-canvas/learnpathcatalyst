@@ -37,12 +37,19 @@ const lessonService = {
     return { ...newLesson };
   },
 
-  async update(id, updates) {
+async update(id, updates) {
     await delay(300);
     const index = lessonsData.findIndex(lesson => lesson.id === id);
     if (index === -1) {
       throw new Error('Lesson not found');
     }
+    
+// Validate YouTube URL if provided
+    if (updates.videoUrl && updates.videoUrl.includes('youtube.com' || 'youtu.be')) {
+      // YouTube URL validation could be added here
+      console.log('YouTube video URL detected:', updates.videoUrl);
+    }
+    
     lessonsData[index] = { ...lessonsData[index], ...updates };
     return { ...lessonsData[index] };
   },
