@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-import { courseService, progressService } from '@/services';
+import { courseService, progressService, recommendationService } from '@/services';
 import CourseFilters from '@/components/organisms/CourseFilters';
 import CourseGrid from '@/components/organisms/CourseGrid';
+import CourseRecommendationCarousel from '@/components/organisms/CourseRecommendationCarousel';
 import LoadingSpinner from '@/components/atoms/LoadingSpinner';
 import AlertMessage from '@/components/molecules/AlertMessage';
-
 const CoursesPage = () => {
   const [courses, setCourses] = useState([]);
   const [progress, setProgress] = useState([]);
+  const [recommendations, setRecommendations] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [recommendationsLoading, setRecommendationsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedDifficulty, setSelectedDifficulty] = useState('all');
-
-  useEffect(() => {
+useEffect(() => {
     const loadData = async () => {
       setLoading(true);
       setError(null);
@@ -26,6 +27,19 @@ const CoursesPage = () => {
         ]);
         setCourses(coursesData);
         setProgress(progressData);
+
+        // Load recommendations if user has progress
+        if (progressData.length > 0) {
+          setRecommendationsLoading(true);
+          try {
+            const recommendedCourses = await recommendationService.getRecommendations(progressData, coursesData);
+            setRecommendations(recommendedCourses);
+          } catch (recError) {
+            console.error('Failed to load recommendations:', recError);
+          } finally {
+            setRecommendationsLoading(false);
+          }
+        }
       } catch (err) {
         setError(err.message || 'Failed to load courses');
         toast.error('Failed to load courses');
@@ -109,6 +123,17 @@ const CoursesPage = () => {
             Discover and enroll in courses to expand your knowledge
           </p>
         </div>
+{/* Recommendations Section */}
+        {recommendations.length > 0 && (
+          <div className="mb-8">
+            <CourseRecommendationCarousel 
+              recommendations={recommendations}
+              loading={recommendationsLoading}
+              title="Recommended for You"
+              subtitle="Continue your learning journey with these suggested courses"
+            />
+          </div>
+        )}
 
         <CourseFilters
             searchTerm={searchTerm}

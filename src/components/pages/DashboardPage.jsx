@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { courseService, progressService } from '@/services';
+import { courseService, progressService, recommendationService } from '@/services';
 import DashboardStatsGrid from '@/components/organisms/DashboardStatsGrid';
 import EnrolledCoursesList from '@/components/organisms/EnrolledCoursesList';
 import BookmarkedLessonsSection from '@/components/organisms/BookmarkedLessonsSection';
 import RecentActivityList from '@/components/organisms/RecentActivityList';
+import CourseRecommendationCarousel from '@/components/organisms/CourseRecommendationCarousel';
 import LoadingSpinner from '@/components/atoms/LoadingSpinner';
 import AlertMessage from '@/components/molecules/AlertMessage';
 
 const DashboardPage = () => {
-  const [enrolledCourses, setEnrolledCourses] = useState([]);
+const [enrolledCourses, setEnrolledCourses] = useState([]);
   const [recentActivity, setRecentActivity] = useState([]);
+  const [recommendations, setRecommendations] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [recommendationsLoading, setRecommendationsLoading] = useState(false);
+const [recommendationsError, setRecommendationsError] = useState(null);
 
   useEffect(() => {
     const loadDashboardData = async () => {
@@ -41,6 +45,9 @@ const DashboardPage = () => {
           { id: 2, action: 'Scored 95% on "Spanish Greetings" quiz', time: '1 day ago', type: 'quiz' },
           { id: 3, action: 'Started "Advanced Math"', time: '2 days ago', type: 'course' }
         ]);
+
+        // Load recommendations
+        await loadRecommendations(progress, courses);
       } catch (err) {
         setError(err.message || 'Failed to load dashboard data');
       } finally {
@@ -48,9 +55,21 @@ const DashboardPage = () => {
       }
     };
 
+    const loadRecommendations = async (progress, courses) => {
+      setRecommendationsLoading(true);
+      setRecommendationsError(null);
+      try {
+        const recommendedCourses = await recommendationService.getRecommendations(progress, courses);
+        setRecommendations(recommendedCourses);
+      } catch (err) {
+        setRecommendationsError(err.message || 'Failed to load recommendations');
+      } finally {
+        setRecommendationsLoading(false);
+      }
+    };
+
     loadDashboardData();
   }, []);
-
   if (loading) {
     return (
       <div className="min-h-full bg-surface-50 flex items-center justify-center py-12">
@@ -91,6 +110,11 @@ const DashboardPage = () => {
 <div className="space-y-8">
             <DashboardStatsGrid enrolledCoursesCount={enrolledCourses.length} />
             <EnrolledCoursesList enrolledCourses={enrolledCourses} />
+            <CourseRecommendationCarousel 
+              recommendations={recommendations}
+              loading={recommendationsLoading}
+              error={recommendationsError}
+            />
             <BookmarkedLessonsSection />
             <RecentActivityList recentActivity={recentActivity} />
         </div>

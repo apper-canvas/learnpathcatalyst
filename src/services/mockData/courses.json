@@ -1,5 +1,5 @@
 [
-  {
+{
     "id": "1",
     "title": "JavaScript Fundamentals",
     "description": "Master the fundamentals of JavaScript programming with hands-on exercises and real-world projects. Learn variables, functions, objects, and modern ES6+ features.",
@@ -7,9 +7,10 @@
     "difficulty": "beginner",
     "thumbnail": "/images/javascript-course.jpg",
     "totalLessons": 12,
-    "duration": "8 hours"
+    "duration": "8 hours",
+    "tags": ["javascript", "web-development", "programming", "frontend"]
   },
-  {
+{
     "id": "2",
     "title": "Spanish for Beginners",
     "description": "Start your Spanish learning journey with essential vocabulary, grammar, and conversational skills. Perfect for complete beginners who want to communicate effectively.",
@@ -17,9 +18,10 @@
     "difficulty": "beginner",
     "thumbnail": "/images/spanish-course.jpg",
     "totalLessons": 15,
-    "duration": "10 hours"
+    "duration": "10 hours",
+    "tags": ["spanish", "language-learning", "conversation", "vocabulary"]
   },
-  {
+{
     "id": "3",
     "title": "Advanced Calculus",
     "description": "Dive deep into advanced calculus concepts including limits, derivatives, integrals, and differential equations. Ideal for students preparing for advanced mathematics.",
@@ -27,9 +29,10 @@
     "difficulty": "advanced",
     "thumbnail": "/images/calculus-course.jpg",
     "totalLessons": 20,
-    "duration": "15 hours"
+    "duration": "15 hours",
+    "tags": ["calculus", "mathematics", "derivatives", "integrals"]
   },
-  {
+{
     "id": "4",
     "title": "React Development Masterclass",
     "description": "Build modern web applications with React.js. Learn components, hooks, state management, and best practices for creating scalable React applications.",
@@ -37,9 +40,10 @@
     "difficulty": "intermediate",
     "thumbnail": "/images/react-course.jpg",
     "totalLessons": 18,
-    "duration": "12 hours"
+    "duration": "12 hours",
+    "tags": ["react", "javascript", "web-development", "frontend", "hooks"]
   },
-  {
+{
     "id": "5",
     "title": "French Conversation Practice",
     "description": "Improve your French speaking skills through interactive conversations and pronunciation exercises. Focus on real-world scenarios and cultural contexts.",
@@ -47,6 +51,40 @@
     "difficulty": "intermediate",
     "thumbnail": "/images/french-course.jpg",
     "totalLessons": 14,
-    "duration": "9 hours"
+    "duration": "9 hours",
+    "tags": ["french", "language-learning", "conversation", "pronunciation"]
+  },
+  {
+    "id": "6",
+    "title": "Python for Data Science",
+    "description": "Learn Python programming specifically for data analysis and visualization. Cover pandas, numpy, matplotlib, and basic machine learning concepts.",
+    "category": "programming",
+    "difficulty": "intermediate",
+    "thumbnail": "/images/python-course.jpg",
+    "totalLessons": 16,
+    "duration": "11 hours",
+    "tags": ["python", "data-science", "programming", "analytics"]
+  },
+  {
+    "id": "7",
+    "title": "Linear Algebra Essentials",
+    "description": "Foundation course in linear algebra covering vectors, matrices, eigenvalues, and applications in computer science and engineering.",
+    "category": "mathematics",
+    "difficulty": "intermediate",
+    "thumbnail": "/images/linear-algebra-course.jpg",
+    "totalLessons": 14,
+    "duration": "10 hours",
+    "tags": ["linear-algebra", "mathematics", "vectors", "matrices"]
+  },
+  {
+    "id": "8",
+    "title": "German Language Basics",
+    "description": "Introduction to German language with focus on grammar, vocabulary, and practical communication skills for everyday situations.",
+    "category": "languages",
+    "difficulty": "beginner",
+    "thumbnail": "/images/german-course.jpg",
+    "totalLessons": 12,
+    "duration": "8 hours",
+    "tags": ["german", "language-learning", "grammar", "vocabulary"]
   }
 ]
