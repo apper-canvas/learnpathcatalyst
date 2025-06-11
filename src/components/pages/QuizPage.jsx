@@ -76,7 +76,7 @@ const QuizPage = () => {
     return Math.round((correctAnswers / quiz.questions.length) * 100);
   };
 
-  const handleSubmitQuiz = async () => {
+const handleSubmitQuiz = async () => {
     if (!quiz || Object.keys(selectedAnswers).length !== quiz.questions.length) {
       toast.warning('Please answer all questions before submitting');
       return;
@@ -88,9 +88,12 @@ const QuizPage = () => {
       setScore(calculatedScore);
       
       if (progress) {
+        const currentBestScore = progress.quizScores?.[lessonId] || 0;
+        const newBestScore = Math.max(currentBestScore, calculatedScore);
+        
         const updatedQuizScores = {
           ...progress.quizScores,
-          [lessonId]: calculatedScore
+          [lessonId]: newBestScore
         };
 
         await progressService.update(progress.courseId, {
@@ -98,12 +101,20 @@ const QuizPage = () => {
           quizScores: updatedQuizScores,
           lastAccessed: new Date().toISOString()
         });
+
+        if (calculatedScore > currentBestScore) {
+          toast.success(`New best score! You scored ${calculatedScore}%`);
+        } else if (calculatedScore === currentBestScore && currentBestScore > 0) {
+          toast.info(`You matched your best score of ${calculatedScore}%`);
+        }
       }
 
       setShowResults(true);
       
       if (calculatedScore >= (quiz.passingScore || 70)) {
-        toast.success(`Great job! You scored ${calculatedScore}%`);
+        if (!progress?.quizScores?.[lessonId] || calculatedScore > progress.quizScores[lessonId]) {
+          toast.success(`Great job! You scored ${calculatedScore}%`);
+        }
       } else {
         toast.info(`You scored ${calculatedScore}%. Try again to improve!`);
       }
@@ -117,10 +128,11 @@ const QuizPage = () => {
   const handleRetakeQuiz = () => {
     setSelectedAnswers({});
     setCurrentQuestionIndex(0);
+    setScore(null);
     setShowResults(false);
-    setScore(0);
-  };
-
+    setIsSubmitting(false);
+    toast.info('Quiz reset. Good luck!');
+};
   const handlePreviousQuestion = () => {
     setCurrentQuestionIndex(Math.max(0, currentQuestionIndex - 1));
   };

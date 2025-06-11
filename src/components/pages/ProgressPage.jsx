@@ -40,11 +40,15 @@ const ProgressPage = () => {
   }, []);
 
   const getEnrolledCourses = () => {
-    return courses.filter(course => 
+return courses.filter(course => 
       progress.some(p => p.courseId === course.id)
     ).map(course => {
       const courseProgress = progress.find(p => p.courseId === course.id);
-      return { ...course, progress: courseProgress };
+      return { 
+        ...course, 
+        progress: courseProgress,
+        quizScores: courseProgress?.quizScores || {}
+      };
     });
   };
 
@@ -176,7 +180,10 @@ const ProgressPage = () => {
           <div className="space-y-8">
             <OverallProgressStats stats={stats} />
             <AchievementsList achievements={achievements} />
-            <CourseProgressList enrolledCourses={enrolledCourses} />
+<CourseProgressList 
+              enrolledCourses={enrolledCourses}
+              showQuizScores={true}
+            />
           </div>
         )}
       </div>
