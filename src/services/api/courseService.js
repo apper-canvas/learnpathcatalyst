@@ -38,14 +38,13 @@ const courseService = {
     return { ...coursesData[index] };
   },
 
-  async delete(id) {
+async delete(id) {
     await delay(300);
     const index = coursesData.findIndex(course => course.id === id);
     if (index === -1) {
       throw new Error('Course not found');
     }
     const deleted = coursesData.splice(index, 1)[0];
-const deleted = coursesData.splice(index, 1)[0];
     return { ...deleted };
   },
 
