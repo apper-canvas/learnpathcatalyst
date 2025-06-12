@@ -9,18 +9,19 @@ import LoadingSpinner from '@/components/atoms/LoadingSpinner';
 import AlertMessage from '@/components/molecules/AlertMessage';
 import CourseDetailsHeader from '@/components/organisms/CourseDetailsHeader';
 import CourseCurriculum from '@/components/organisms/CourseCurriculum';
+
 const CourseDetailsPage = () => {
   const { courseId } = useParams();
   const navigate = useNavigate();
-const [course, setCourse] = useState(null);
+  const [course, setCourse] = useState(null);
   const [lessons, setLessons] = useState([]);
   const [progress, setProgress] = useState(null);
   const [loading, setLoading] = useState(false);
   const [enrolling, setEnrolling] = useState(false);
   const [error, setError] = useState(null);
-  const [bookmarks, setBookmarks] = useState([]);
+const [bookmarks, setBookmarks] = useState([]);
 
-useEffect(() => {
+  useEffect(() => {
     const loadCourseData = async () => {
       setLoading(true);
       setError(null);
@@ -47,9 +48,9 @@ useEffect(() => {
     if (courseId) {
       loadCourseData();
     }
-  }, [courseId]);
+}, [courseId]);
 
-const handleEnroll = async () => {
+  const handleEnroll = async () => {
     setEnrolling(true);
     try {
       // First enroll in the course
@@ -138,9 +139,9 @@ const handleEnroll = async () => {
             handleStartLearning={handleStartLearning}
             enrolling={enrolling}
             lessons={lessons} // Pass lessons to handleStartLearning checks
-        />
+/>
 
-<CourseCurriculum
+        <CourseCurriculum
             lessons={lessons}
             courseId={courseId}
             isEnrolled={isEnrolled}
