@@ -53,6 +53,13 @@ quizPage: {
     component: QuizPage,
     hideFromNav: true
   },
+  courseQuizPage: {
+    id: 'courseQuizPage', 
+    label: 'Course Quiz',
+    path: '/courses/:courseId/quiz',
+    icon: 'BookCheck',
+    component: QuizPage
+  },
   progress: {
     id: 'progress',
     label: 'My Progress',

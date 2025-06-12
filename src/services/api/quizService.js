@@ -16,12 +16,20 @@ const quizService = {
     }
     return { ...quiz };
   },
-
-  async getByLessonId(lessonId) {
+async getByLessonId(lessonId) {
     await delay(250);
     const quiz = quizzesData.find(quiz => quiz.lessonId === lessonId);
     if (!quiz) {
       throw new Error('Quiz not found for this lesson');
+    }
+    return { ...quiz };
+  },
+
+  async getByCourseId(courseId) {
+    await delay(250);
+    const quiz = quizzesData.find(quiz => quiz.courseId === courseId);
+    if (!quiz) {
+      throw new Error('Quiz not found for this course');
     }
     return { ...quiz };
   },

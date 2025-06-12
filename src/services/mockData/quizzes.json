@@ -136,5 +136,144 @@
         "correctAnswer": 2
       }
     ]
+},
+  {
+    "id": "5",
+    "courseId": "1",
+    "passingScore": 75,
+    "questions": [
+      {
+        "id": "q11",
+        "question": "What is the correct syntax to create a function in JavaScript?",
+        "options": [
+          "function myFunction() {}",
+          "create myFunction() {}",
+          "def myFunction() {}",
+          "function = myFunction() {}"
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q12", 
+        "question": "Which method is used to add an element to the end of an array?",
+        "options": [
+          "append()",
+          "push()",
+          "add()",
+          "insert()"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q13",
+        "question": "What does the '===' operator do in JavaScript?",
+        "options": [
+          "Assigns a value",
+          "Compares values only",
+          "Compares both value and type",
+          "Creates a new variable"
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q14",
+        "question": "Which of these is the correct way to write a comment in JavaScript?",
+        "options": [
+          "# This is a comment",
+          "<!-- This is a comment -->",
+          "// This is a comment", 
+          "/* This is a comment */"
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q15",
+        "question": "What is the result of typeof null in JavaScript?",
+        "options": [
+          "null",
+          "undefined",
+          "object",
+          "boolean"
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q16",
+        "question": "Which method is used to remove the last element from an array?",
+        "options": [
+          "removeLast()",
+          "pop()",
+          "delete()",
+          "splice()"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q17",
+        "question": "How do you declare a constant in JavaScript?",
+        "options": [
+          "const myVar = 5;",
+          "constant myVar = 5;",
+          "final myVar = 5;",
+          "let myVar = 5;"
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q18",
+        "question": "What is the purpose of the 'return' statement in a function?",
+        "options": [
+          "To stop the function execution",
+          "To send a value back to the caller",
+          "To declare a variable",
+          "Both A and B"
+        ],
+        "correctAnswer": 3
+      },
+      {
+        "id": "q19",
+        "question": "Which of these is NOT a JavaScript data type?",
+        "options": [
+          "string",
+          "integer",
+          "boolean", 
+          "undefined"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q20",
+        "question": "What does DOM stand for in web development?",
+        "options": [
+          "Document Object Model",
+          "Data Object Management",
+          "Dynamic Object Method",
+          "Document Oriented Markup"
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q21",
+        "question": "How do you access an element by its ID in JavaScript?",
+        "options": [
+          "document.getElement('id')",
+          "document.getElementById('id')",
+          "document.findById('id')",
+          "document.selectId('id')"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q22",
+        "question": "Which event is triggered when a user clicks on an HTML element?",
+        "options": [
+          "onmouseover",
+          "onclick",
+          "onchange",
+          "onload"
+        ],
+        "correctAnswer": 1
+      }
+    ]
   }
 ]

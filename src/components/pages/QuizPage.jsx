@@ -18,6 +18,7 @@ const QuizPage = () => {
   const [progress, setProgress] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [isCourseLevelQuiz, setIsCourseLevelQuiz] = useState(false);
   
   // Quiz state
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -26,22 +27,42 @@ const QuizPage = () => {
   const [score, setScore] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useEffect(() => {
+useEffect(() => {
     const loadQuizData = async () => {
       setLoading(true);
       setError(null);
+      
+      // Determine if this is a course-level quiz (no lessonId) or lesson-specific quiz
+      const isCourseQuiz = !lessonId;
+      setIsCourseLevelQuiz(isCourseQuiz);
+      
       try {
-        const [courseData, lessonData, quizData, progressData] = await Promise.all([
-          courseService.getById(courseId),
-          lessonService.getById(lessonId),
-          quizService.getByLessonId(lessonId),
-          progressService.getByCourseId(courseId)
-        ]);
-        
-        setCourse(courseData);
-        setLesson(lessonData);
-        setQuiz(quizData);
-        setProgress(progressData);
+        if (isCourseQuiz) {
+          // Course-level quiz
+          const [courseData, quizData, progressData] = await Promise.all([
+            courseService.getById(courseId),
+            quizService.getByCourseId(courseId),
+            progressService.getByCourseId(courseId)
+          ]);
+          
+          setCourse(courseData);
+          setQuiz(quizData);
+          setProgress(progressData);
+          setLesson(null);
+        } else {
+          // Lesson-specific quiz
+          const [courseData, lessonData, quizData, progressData] = await Promise.all([
+            courseService.getById(courseId),
+            lessonService.getById(lessonId),
+            quizService.getByLessonId(lessonId),
+            progressService.getByCourseId(courseId)
+          ]);
+          
+          setCourse(courseData);
+          setLesson(lessonData);
+          setQuiz(quizData);
+          setProgress(progressData);
+        }
       } catch (err) {
         setError(err.message || 'Failed to load quiz');
         toast.error('Failed to load quiz');
@@ -50,7 +71,7 @@ const QuizPage = () => {
       }
     };
 
-    if (courseId && lessonId) {
+    if (courseId) {
       loadQuizData();
     }
   }, [courseId, lessonId]);
@@ -88,12 +109,13 @@ const handleSubmitQuiz = async () => {
       setScore(calculatedScore);
       
       if (progress) {
-        const currentBestScore = progress.quizScores?.[lessonId] || 0;
+        const scoreKey = isCourseLevelQuiz ? `course_${courseId}` : lessonId;
+        const currentBestScore = progress.quizScores?.[scoreKey] || 0;
         const newBestScore = Math.max(currentBestScore, calculatedScore);
         
         const updatedQuizScores = {
           ...progress.quizScores,
-          [lessonId]: newBestScore
+          [scoreKey]: newBestScore
         };
 
         await progressService.update(progress.courseId, {
@@ -112,9 +134,7 @@ const handleSubmitQuiz = async () => {
       setShowResults(true);
       
       if (calculatedScore >= (quiz.passingScore || 70)) {
-        if (!progress?.quizScores?.[lessonId] || calculatedScore > progress.quizScores[lessonId]) {
-          toast.success(`Great job! You scored ${calculatedScore}%`);
-        }
+        toast.success(`Great job! You scored ${calculatedScore}%`);
       } else {
         toast.info(`You scored ${calculatedScore}%. Try again to improve!`);
       }
@@ -154,14 +174,17 @@ const handleSubmitQuiz = async () => {
     );
   }
 
-  if (error || !quiz || !course || !lesson) {
+if (error || !quiz || !course) {
+    const backPath = isCourseLevelQuiz ? `/courses/${courseId}` : `/courses/${courseId}/lessons/${lessonId}`;
+    const backLabel = isCourseLevelQuiz ? "Back to Course" : "Back to Lesson";
+    
     return (
       <div className="min-h-full bg-surface-50 flex items-center justify-center">
         <AlertMessage
           type="error"
           title="Quiz not available"
-          message={error || "No quiz found for this lesson."}
-          linkButton={{ to: `/courses/${courseId}/lessons/${lessonId}`, label: "Back to Lesson" }}
+          message={error || "No quiz found."}
+          linkButton={{ to: backPath, label: backLabel }}
         />
       </div>
     );
@@ -183,9 +206,12 @@ const handleSubmitQuiz = async () => {
     <div className="min-h-full bg-surface-50">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
-        <div className="mb-8">
+<div className="mb-8">
           <Breadcrumb
-            items={[
+            items={isCourseLevelQuiz ? [
+              { label: course.title, to: `/courses/${courseId}` },
+              { label: 'Quiz' }
+            ] : [
               { label: course.title, to: `/courses/${courseId}` },
               { label: lesson.title, to: `/courses/${courseId}/lessons/${lessonId}` },
               { label: 'Quiz' }
@@ -195,8 +221,8 @@ const handleSubmitQuiz = async () => {
           
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-heading font-bold text-surface-900">
-                Quiz: {lesson.title}
+<h1 className="text-2xl font-heading font-bold text-surface-900">
+                {isCourseLevelQuiz ? `${course.title} - Final Quiz` : `Quiz: ${lesson.title}`}
               </h1>
               <p className="text-surface-500">
                 Question {currentQuestionIndex + 1} of {totalQuestions}
