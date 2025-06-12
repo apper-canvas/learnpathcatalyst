@@ -49,9 +49,13 @@ useEffect(() => {
     }
   }, [courseId]);
 
-  const handleEnroll = async () => {
+const handleEnroll = async () => {
     setEnrolling(true);
     try {
+      // First enroll in the course
+      await courseService.enrollInCourse(courseId);
+      
+      // Then create progress tracking
       const newProgress = await progressService.create({
         courseId: courseId,
         completedLessons: [],
