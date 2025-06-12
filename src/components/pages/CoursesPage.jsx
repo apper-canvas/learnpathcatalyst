@@ -15,39 +15,40 @@ const CoursesPage = () => {
   const [recommendationsLoading, setRecommendationsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [selectedDifficulty, setSelectedDifficulty] = useState('all');
-useEffect(() => {
-    const loadData = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const [coursesData, progressData] = await Promise.all([
-          courseService.getAll(),
-          progressService.getAll()
-        ]);
-        setCourses(coursesData);
-        setProgress(progressData);
+const [selectedDifficulty, setSelectedDifficulty] = useState('all');
 
-        // Load recommendations if user has progress
-        if (progressData.length > 0) {
-          setRecommendationsLoading(true);
-          try {
-            const recommendedCourses = await recommendationService.getRecommendations(progressData, coursesData);
-            setRecommendations(recommendedCourses);
-          } catch (recError) {
-            console.error('Failed to load recommendations:', recError);
-          } finally {
-            setRecommendationsLoading(false);
-          }
+  const loadData = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const [coursesData, progressData] = await Promise.all([
+        courseService.getAll(),
+        progressService.getAll()
+      ]);
+      setCourses(coursesData);
+      setProgress(progressData);
+
+      // Load recommendations if user has progress
+      if (progressData.length > 0) {
+        setRecommendationsLoading(true);
+        try {
+          const recommendedCourses = await recommendationService.getRecommendations(progressData, coursesData);
+          setRecommendations(recommendedCourses);
+        } catch (recError) {
+          console.error('Failed to load recommendations:', recError);
+        } finally {
+          setRecommendationsLoading(false);
         }
-      } catch (err) {
-        setError(err.message || 'Failed to load courses');
-        toast.error('Failed to load courses');
-      } finally {
-        setLoading(false);
       }
-    };
+    } catch (err) {
+      setError(err.message || 'Failed to load courses');
+      toast.error('Failed to load courses');
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     loadData();
   }, []);
 
@@ -68,6 +69,18 @@ useEffect(() => {
     return courseProgress ? courseProgress.completionPercentage : 0;
   };
 
+  const handleEnrollment = async (courseId) => {
+    try {
+      await courseService.enrollInCourse(courseId);
+      toast.success('Successfully enrolled in course!');
+      // Refresh data to update enrollment status
+      loadData();
+    } catch (error) {
+      console.error('Error enrolling in course:', error);
+      toast.error('Failed to enroll in course. Please try again.');
+    }
+  };
+
   const handleClearFilters = () => {
     setSearchTerm('');
     setSelectedCategory('all');
@@ -75,7 +88,6 @@ useEffect(() => {
   };
 
   const showClearFiltersButton = searchTerm || selectedCategory !== 'all' || selectedDifficulty !== 'all';
-
   if (loading) {
     return (
       <div className="min-h-full bg-surface-50">
@@ -146,11 +158,12 @@ useEffect(() => {
             difficulties={difficulties}
         />
 
-        <CourseGrid
+<CourseGrid
             filteredCourses={filteredCourses}
             coursesCount={filteredCourses.length}
             totalCoursesCount={courses.length}
             getCourseProgress={getCourseProgress}
+            onEnroll={handleEnrollment}
             onClearFilters={handleClearFilters}
             showClearFiltersButton={showClearFiltersButton}
         />
