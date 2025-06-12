@@ -30,7 +30,7 @@
     "id": "4",
     "courseId": "2",
     "title": "Spanish Alphabet and Pronunciation",
-    "videoUrl": "/videos/spanish-alphabet.mp4",
+"videoUrl": "https://www.youtube.com/watch?v=4StqjOTTsHw",
     "duration": 20,
     "notes": "Learn the Spanish alphabet, pronunciation rules, and basic phonetics. Practice with common sounds that are different from English, including rolled R's and proper vowel pronunciation.",
     "order": 1
@@ -39,7 +39,7 @@
     "id": "5",
     "courseId": "2",
     "title": "Basic Greetings and Introductions",
-    "videoUrl": "/videos/spanish-greetings.mp4",
+"videoUrl": "https://www.youtube.com/watch?v=0gu9ZqALbYg",
     "duration": 25,
     "notes": "Master essential Spanish greetings, formal and informal introductions, and basic courtesy expressions. Practice conversations for meeting new people and everyday interactions.",
     "order": 2
@@ -48,7 +48,7 @@
     "id": "6",
     "courseId": "3",
     "title": "Limits and Continuity",
-    "videoUrl": "/videos/calculus-limits.mp4",
+"videoUrl": "https://www.youtube.com/watch?v=WUvTyaaNkzM",
     "duration": 45,
     "notes": "Explore the fundamental concept of limits in calculus. Understand how limits define continuity, and learn various techniques for evaluating limits including algebraic manipulation and L'Hôpital's rule.",
     "order": 1
@@ -57,7 +57,7 @@
     "id": "7",
     "courseId": "4",
     "title": "React Components and JSX",
-    "videoUrl": "/videos/react-components.mp4",
+"videoUrl": "https://www.youtube.com/watch?v=Tn6-PIqc4UM",
     "duration": 40,
     "notes": "Learn the foundation of React development with components and JSX syntax. Understand how to create functional and class components, JSX rules, and best practices for component structure.",
     "order": 1
@@ -66,7 +66,7 @@
     "id": "8",
     "courseId": "5",
     "title": "French Pronunciation Basics",
-    "videoUrl": "/videos/french-pronunciation.mp4",
+"videoUrl": "https://www.youtube.com/watch?v=ZKp_nnjpyC8",
     "duration": 30,
     "notes": "Master French pronunciation fundamentals including nasal vowels, liaison, and the distinctive French 'r'. Practice with common words and phrases to develop authentic French pronunciation.",
     "order": 1
