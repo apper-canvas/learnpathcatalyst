@@ -11,68 +11,61 @@ import NotFoundPage from '@/components/pages/NotFoundPage';
 export const routes = {
   home: {
     id: 'home',
-    label: 'Home',
+label: 'Home',
     path: '/',
     icon: 'Home',
-component: HomePage
+    component: HomePage
   },
   dashboard: {
     id: 'dashboard',
-    label: 'Dashboard',
+label: 'Dashboard',
     path: '/dashboard',
     icon: 'LayoutDashboard',
-component: DashboardPage
+    component: DashboardPage
   },
   courses: {
     id: 'courses',
-    label: 'Courses',
+label: 'Courses',
     path: '/courses',
     icon: 'BookOpen',
-component: CoursesPage
+    component: CoursesPage
   },
   courseDetails: {
     id: 'courseDetails',
-    label: 'Course Details',
+label: 'Course Details',
     path: '/courses/:courseId',
     icon: 'BookOpen',
-component: CourseDetailsPage,
+    component: CourseDetailsPage,
     hideFromNav: true
   },
   lessonViewer: {
     id: 'lessonViewer',
-    label: 'Lesson',
+label: 'Lesson',
     path: '/courses/:courseId/lessons/:lessonId',
     icon: 'Play',
-component: LessonViewerPage,
+    component: LessonViewerPage,
     hideFromNav: true
   },
-quizPage: {
+  quizPage: {
     id: 'quizPage',
-    label: 'Quiz',
+label: 'Quiz',
     path: '/courses/:courseId/lessons/:lessonId/quiz',
     component: QuizPage,
     hideFromNav: true
-  },
-  courseQuizPage: {
-    id: 'courseQuizPage', 
-    label: 'Course Quiz',
-    path: '/courses/:courseId/quiz',
-    icon: 'BookCheck',
-    component: QuizPage
   },
   progress: {
     id: 'progress',
     label: 'My Progress',
     path: '/progress',
     icon: 'TrendingUp',
-component: ProgressPage
+    component: ProgressPage
   },
   settings: {
     id: 'settings',
     label: 'Settings',
     path: '/settings',
     icon: 'Settings',
-component: SettingsPage
+    component: SettingsPage
   }
 };
 
