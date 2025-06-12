@@ -26,10 +26,10 @@ const progressService = {
     return { ...courseProgress };
   },
 
-  async create(progressData) {
+async create(newProgressData) {
     await delay(400);
     const newProgress = {
-      ...progressData,
+      ...newProgressData,
       id: Date.now().toString(),
       createdAt: new Date().toISOString()
     };
